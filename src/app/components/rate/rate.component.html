@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-6 mt-5">
+        <div class="card">
+            <div class="card-body">
+                <div class="mb-3">
+            </div>
+            <div ng-app="test">
+  <div ng-controller="mainCtrl">
+    <select name="category" id="category" class="currency" [(ngModel)]="selectedCurrencyFrom">
+        <option *ngFor="let currency of currencies" [value]="currency.code">{{currency.name}}</option>
+    </select>
+    <input type="number" ng-model="num1" required [(ngModel)]="num1" ng-model="num1" ng-init="num1=0">
+        <br>
+        <select name="category" id="category" class="currency" [(ngModel)]="selectedCurrencyTo">
+            <option *ngFor="let currency of currencies" [value]="currency.code">{{currency.name}}</option>
+        </select>
+</div>
+<button class="btn btn-primary" [disabled]="false" (click)="getCurrencyRate()" [disabled]="selectedCurrencyFrom == '' && selectedCurrencyFrom == ''">Rodyti</button>
+</div>
+        </div>
+    </div>
+    <div class="">
+        <div class="card">
+            <div class="card-body">
+                <div class="alert alert-info" *ngIf="!rate.rates[loadedCurrencyTo]">
+                Kraunama ...
+                </div>
+
+                <div *ngIf="rate.rates[loadedCurrencyTo]">
+                {{loadedCurrencyFrom}} -> {{loadedCurrencyTo}}: <b>{{num1}} * {{this.rate.rates[loadedCurrencyTo]}} = {{num1 + 1.673}}</b>
+                </div>
+            </div>
+        </div>
+  </div>
+  
